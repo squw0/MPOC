@@ -1,39 +1,24 @@
-%[I m] = imread('4.1.05.bmp');
-%[I m] = imread('autumn.tif');
-%[I m] = imread('kids.tif');
-%[I m] = imread('lena256.bmp');
-
-
-
 [I, m] = imread('autumn.tif');
 
 if ndims(I) > 2
-    disp('Obraz RGB');
+    disp('obraz RGB');
     imshow(I);
-    title('Obraz RGB');
-
+    title('obraz RGB');
     I = double(I);
-
-    % Obliczanie obrazu w odcieniach szarości
     Igray = (I(:,:,1) + I(:,:,2) + I(:,:,3)) / 3;
-    Igray = Igray / 255;  % Normalizacja do zakresu [0, 1]
-
+    Igray = Igray / 255;
     figure;
     imshow(Igray);
-    title('Obraz w odcieniach szarości (średnia)');
-
-    % Alternatywna metoda z wagami
+    title('obraz w odcieniach szarości średnia');
     Igray2 = (11 * I(:,:,1) + 16 * I(:,:,2) + 5 * I(:,:,3)) / 32;
-    Igray2 = Igray2 / 255;  % Normalizacja
+    Igray2 = Igray2 / 255;
     figure;
     imshow(Igray2);
-    title('Obraz w odcieniach szarości (waga RGB)');
-
+    title('obraz w odcieniach szarości rgb');
 elseif size(m, 1) > 1
-    disp('Obraz indeksowany');
+    disp('obraz indeksowany');
     imshow(I, m);
-    title('Obraz indeksowany');
+    title('obraz indeksowany');
 else
-    disp('Obraz w gradacji szarości');
+    disp('obraz w gradacji szarości');
 end
-

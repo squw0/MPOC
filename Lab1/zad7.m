@@ -2,7 +2,7 @@ input_image = imread('lenaRGB.tiff');
 
 function display_rgb_components(input_image)
     if ndims(input_image) != 3 || size(input_image, 3) != 3
-        error('Wejściowy obraz musi być kolorowy (3 kanały RGB).');
+        error('Obraz musi być kolorowy');
     end
 
     R = input_image(:,:,1);
@@ -20,16 +20,15 @@ function display_rgb_components(input_image)
     figure;
     subplot(1, 3, 1);
     imshow(R_image);
-    title('Składowa Czerwona (R)');
+    title('R');
 
     subplot(1, 3, 2);
     imshow(G_image);
-    title('Składowa Zielona (G)');
+    title('G');
 
     subplot(1, 3, 3);
     imshow(B_image);
-    title('Składowa Niebieska (B)');
+    title('B');
 end
-
 
 display_rgb_components(input_image);
