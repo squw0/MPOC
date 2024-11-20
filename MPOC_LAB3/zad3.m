@@ -1,5 +1,4 @@
-clc
-clear
+
 pkg load image;
 
 [I, map] = imread('deszcz.jpg');

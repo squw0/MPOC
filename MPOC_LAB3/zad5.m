@@ -1,9 +1,8 @@
-clc
-clear
+pkg load image
 
-[I, map] = imread('MPOC_lab_02_Obrazy/MPOC_lab_02_Obrazy/Tlo.bmp');
+[I, map] = imread('Tlo.bmp');
 
-[I2,map] = imread('MPOC_lab_02_Obrazy/MPOC_lab_02_Obrazy/Ufok.bmp');
+[I2,map] = imread('Ufok.bmp');
 
 I = imresize(I, [size(I2,1), size(I2,2)]);
 

@@ -1,16 +1,21 @@
-clc
-clear
+I1 = imread("kolo.png");
+I2 = imread("LENA256.BMP");
 
-[I, map] = imread('MPOC_lab_02_Obrazy/MPOC_lab_02_Obrazy/lena256.bmp');
 
-[I2,map] = imread('obraz.bmp');
+target_size = [256, 256];
+I1_cropped = I1(1:target_size(1), 1:target_size(2));
+I2_cropped = I2(1:target_size(1), 1:target_size(2));
 
-Iw = bitand(I,I2);
 
-I_negacja = 255 - I2;
-Iw2 = bitand(I,I_negacja);
-
+Iloczyn1 = bitand(I1_cropped, I2_cropped);
 figure;
-subplot(1,2,1), imshow(Iw), title('Iloczyn dwoch obrazow');
-subplot(1,2,2), imshow(Iw2), title('Iloczyn dwoch obrazow po negacji jednego');
+imshow(Iloczyn1);
+
+
+
+I1_neg = 255 - I1_cropped;
+Iloczyn2 = bitand(I1_neg, I2_cropped);
+figure;
+imshow(Iloczyn2);
+
 

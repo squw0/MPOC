@@ -1,7 +1,6 @@
-clc;
-clear;
+pkg load image
 
-[I, map] = imread('MPOC_lab_02_Obrazy/MPOC_lab_02_Obrazy/Ufok.bmp');
+[I, map] = imread('Ufok.bmp');
 
 mask = I;
 klatka = 1;
@@ -14,7 +13,7 @@ mask(:,:,3) = mask(:,:,1);
 Iufo = ind2rgb(I,map);
 Iufo = uint8(Iufo * 255);
 
-[Ibackground, map] = imread('MPOC_lab_02_Obrazy/MPOC_lab_02_Obrazy/Tlo.bmp');
+[Ibackground, map] = imread('Tlo.bmp');
 Ibackground = ind2rgb(Ibackground,map);
 Ibackground = uint8(Ibackground * 255);
 

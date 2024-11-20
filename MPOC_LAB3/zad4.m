@@ -1,9 +1,8 @@
-clc
-clear
+pkg load image
 
-[I, map] = imread('MPOC_lab_02_Obrazy/MPOC_lab_02_Obrazy/lena256.bmp');
+[I, map] = imread('LENA256.bmp');
 
-[I2,map] = imread('obraz.bmp');
+[I2,map] = imread('KOLAAA.bmp');
 
 Iw = bitxor(I, I2);
 
