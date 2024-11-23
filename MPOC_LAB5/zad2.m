@@ -31,4 +31,3 @@ title('Obraz z rozciągniętym histogramem');
 figure;
 imhist(I_stretch, 256);
 title('Histogram po rozciągnięciu');
-
