@@ -1,7 +1,7 @@
 
 pkg load image
 
-I = imread('coins.png');
+I1 = imread('coins.png');
 I2 = imread('tire.tif');
 I3 = imread('pout.tif');
 I4 = imread('moon.tif');
@@ -9,17 +9,17 @@ I5 = imread('cell.tif');
 
 
 %obraz 1
-imshow(I);
+imshow(I1);
 title('oryginalny obraz')
 figure;
-imhist(I,256);
+imhist(I1,256);
 title('oryginalny obraz histogram')
-I_eq = histeq(I, 256);
+I_eq1 = histeq(I1, 256);
 figure;
-imshow(I_eq);
+imshow(I_eq1);
 title('obraz z wyrównanym histogramem')
 figure;
-imhist(I_eq, 256);
+imhist(I_eq1, 256);
 title('wyrównany histogram')
 
 
