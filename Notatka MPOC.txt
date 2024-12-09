@@ -1,0 +1,201 @@
+
+
+
+% 1. Rozciąganie histogramu
+
+img = imread('image1.jpg'); % Wczytaj obraz
+img_gray = rgb2gray(img); % Konwersja do skali szarości
+min_val = double(min(img_gray(:)));
+max_val = double(max(img_gray(:)));
+img_stretch = uint8((double(img_gray) - min_val) * 255 / (max_val - min_val));
+figure; imshow(img_stretch); title('Rozciągnięty histogram');
+
+//////////////////////////////////////
+
+pkg load image
+
+
+function stretched_image = histogramStretching(I, min_val, max_val)
+    [f_min, f_max] = minMax(I);
+    I = double(I);
+    stretched_image = ((I - f_min) / (f_max - f_min)) * (max_val - min_val) + min_val;
+    stretched_image = uint8(stretched_image);
+end
+
+I = imread('tire.tif');
+[m1, m2] = minMax(I);
+disp(['Minimalna wartość: ', num2str(m1)]);
+disp(['Maksymalna wartość: ', num2str(m2)]);
+
+figure;
+imshow(I);
+title('Oryginalny obraz');
+figure;
+imhist(I, 256);
+title('Histogram oryginalnego obrazu');
+
+min_val = 0;
+max_val = 255;
+
+I_stretch = histogramStretching(I, min_val, max_val);
+
+figure;
+imshow(I_stretch);
+title('Obraz z rozciągniętym histogramem');
+figure;
+imhist(I_stretch, 256);
+title('Histogram po rozciągnięciu');
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+% 2. Wyrównanie histogramu
+
+img_eq = histeq(img_gray);
+figure; imshow(img_eq); title('Wyrównanie histogramu');
+
+//////////////////////////////////////
+
+pkg load image
+
+I1 = imread('coins.png');
+I2 = imread('tire.tif');
+I3 = imread('pout.tif');
+I4 = imread('moon.tif');
+I5 = imread('cell.tif');
+
+
+%obraz 1
+imshow(I1);
+title('oryginalny obraz')
+figure;
+imhist(I1,256);
+title('oryginalny obraz histogram')
+I_eq1 = histeq(I1, 256);
+figure;
+imshow(I_eq1);
+title('obraz z wyrównanym histogramem')
+figure;
+imhist(I_eq1, 256);
+title('wyrównany histogram')
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+% 3. Użycie funkcji imadjust
+
+img_adjust = imadjust(img_gray, stretchlim(img_gray), []);
+figure; imshow(img_adjust); title('Imadjust - Poprawiony obraz');
+
+%% Rozjaśnianie obrazu (+ wartość)
+bright_value = 50; % Wartość do dodania
+img_bright = img_gray + bright_value;
+figure; imshow(img_bright, []); title('Rozjaśniony obraz');
+
+%% Przyciemnianie obrazu (- wartość)
+dark_value = 50; % Wartość do odjęcia
+img_dark = img_gray - dark_value;
+figure; imshow(img_dark, []); title('Przyciemniony obraz');
+
+//////////////////////////////////////
+
+pkg load image;
+
+I1 = imread('coins.png');
+I2 = imread('tire.tif');
+I3 = imread('pout.tif');
+I4 = imread('moon.tif');
+I5 = imread('cell.tif');
+
+low_in = 0.1;
+high_in = 0.9;
+low_out = 0;
+high_out = 1;
+gamma = 1.2;
+
+figure;
+imshow(I1);
+title(['Oryginalny obraz: ', I1]);
+
+I_adjusted = imadjust(I, [low_in; high_in], [low_out; high_out], gamma);
+
+figure;
+imshow(I_adjusted);
+title(['Poprawiony obraz: ', I1]);
+
+figure;
+imhist(I1);
+title(['Histogram oryginalny: ', I1]);
+
+figure;
+imhist(I_adjusted);
+title(['Histogram poprawiony: ', I1]);
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+%% Poprawa jakości obrazu 1, 2, 3 przy użyciu filtracji
+img1 = imread('image1.jpg');
+img2 = imread('image2.jpg');
+img3 = imread('image3.jpg');
+
+% Przykład filtru medianowego
+img1_filtered = medfilt2(rgb2gray(img1));
+img2_filtered = medfilt2(rgb2gray(img2));
+img3_filtered = medfilt2(rgb2gray(img3));
+
+% Przykład filtru Gaussian (usuwanie szumu)
+img1_gaussian = imgaussfilt(rgb2gray(img1), 2);
+img2_gaussian = imgaussfilt(rgb2gray(img2), 2);
+img3_gaussian = imgaussfilt(rgb2gray(img3), 2);
+
+% Przykład filtru Sobel (detekcja krawędzi)
+img1_sobel = edge(rgb2gray(img1), 'sobel');
+img2_sobel = edge(rgb2gray(img2), 'sobel');
+img3_sobel = edge(rgb2gray(img3), 'sobel');
+
+figure;
+subplot(3,3,1); imshow(img1_filtered); title('Medianowy - Obraz 1');
+subplot(3,3,2); imshow(img1_gaussian); title('Gaussian - Obraz 1');
+subplot(3,3,3); imshow(img1_sobel); title('Sobel - Obraz 1');
+
+subplot(3,3,4); imshow(img2_filtered); title('Medianowy - Obraz 2');
+subplot(3,3,5); imshow(img2_gaussian); title('Gaussian - Obraz 2');
+subplot(3,3,6); imshow(img2_sobel); title('Sobel - Obraz 2');
+
+subplot(3,3,7); imshow(img3_filtered); title('Medianowy - Obraz 3');
+subplot(3,3,8); imshow(img3_gaussian); title('Gaussian - Obraz 3');
+subplot(3,3,9); imshow(img3_sobel); title('Sobel - Obraz 3');
+
+%% Poprawa kontrastu na obrazie 4
+img4 = imread('image4.jpg');
+img4_gray = rgb2gray(img4);
+img4_contrast = imadjust(img4_gray);
+figure; imshow(img4_contrast); title('Poprawiony kontrast - Obraz 4');
+
+%% Dopasowanie jasności obrazu 5
+img5 = imread('image5.jpg');
+img5_gray = rgb2gray(img5);
+
+% Dopasowanie histogramu poziomów szarości
+img5_eq = histeq(img5_gray);
+figure; imshow(img5_eq); title('Dopasowanie jasności - Obraz 5');
+
+% Operacje arytmetyczne (opcjonalne)
+bias_value = 30; % Dostosowanie jasności przez dodanie wartości
+img5_brightened = img5_gray + bias_value;
+figure; imshow(img5_brightened, []); title('Dopasowanie jasności - Operacje arytmetyczne');
+
+%% Poprawa jakości obrazu 6 przy użyciu funkcji imadjust
+img6 = imread('image6.jpg');
+img6_gray = rgb2gray(img6);
+img6_adjusted = imadjust(img6_gray, stretchlim(img6_gray), []);
+figure; imshow(img6_adjusted); title('Poprawiona jakość - Obraz 6');
