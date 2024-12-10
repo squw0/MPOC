@@ -1,29 +1,17 @@
-pkg load image;
-
-img4 = imread('Obraz_04a.jpg');
-Igray = rgb2gray(img4);
-
-% Poprawa kontrastu
-img4_adjusted = imadjust(img4, stretchlim(img4), []); % Rozciąganie histogramu
-
-% Opcjonalnie: wyrównywanie histogramu
-img4_equalized = histeq(img4);
-
-imwrite(img4_adjusted, 'Obraz_04a_adjusted.png');
-imwrite(img4_equalized, 'Obraz_04a_equalized.png');
-
-
-
-
-%*
-
 
 pkg load image;
-image4 = imread('D:\OM_MPOC\OMishchenko_Lab\Obraz_04a.jpg');
+clc;
+clear;
 
-image4_contrast = imadjust(image4);
+I1 = imread('Obraz_04a.jpg');
+I1gray = rgb2gray(I1);
+
+I1contrast = imadjust(I1gray, stretchlim(I1gray), [0 1]);
+I1h = histeq(I1gray);
+
 
 figure;
-subplot(1,1,1), imshow(image4_contrast), title('Image 4 (Contrast Adjusted)');
+subplot(1,3,1), imshow(I1), title("Obraz 4");
+subplot(1,3,2), imshow(I1gray), title("Obraz 4 szary");
+subplot(1,3,3), imshow(I1contrast), title("Obraz 4 kontrast");
 
-%*
