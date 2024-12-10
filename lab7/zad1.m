@@ -43,6 +43,7 @@ subplot(1,3,3), imshow(I3uL), title("Obraz 3 laplace");
 I1uSP = medfilt2(I1);
 I2uSP = medfilt2(I2);
 I3uSP = medfilt2(I3);
+%I3uSP = medfilt2(I3, [3 3]);
 
 figure;
 subplot(1,3,1), imshow(I1uSP), title("Obraz 1 s&p");
