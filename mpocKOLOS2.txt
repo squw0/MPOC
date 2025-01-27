@@ -1,0 +1,123 @@
+1. Segmentacja obrazów (MPOC_Lab_Progowanie (1).pdf):
+Progowanie obrazów: Znajomość operacji progowania (binaryzacji) oraz progowania z wieloma progami. Musisz umieć zdefiniować funkcje, które wykonują te operacje.
+
+Histogramy: Umiejętność wyznaczania i analizowania histogramów poziomów szarości.
+
+Interakcja z użytkownikiem: Wiedza na temat interakcji z użytkownikiem poprzez myszkę (np. wybór wartości progowych na histogramie) oraz wprowadzanie danych z klawiatury.
+
+Wieloprogowanie: Znajomość technik wieloprogowania, które pozwalają na segmentację obrazu na podstawie wielu wartości progowych.
+
+2. Wykrywanie i analiza cech (MPOC_Lab_09.pdf):
+Analiza obiektów: Umiejętność analizy właściwości obiektów na obrazie, takich jak powierzchnia, obwód, długość osi (MinorAxisLength, MajorAxisLength).
+
+Filtracja obiektów: Wiedza na temat filtrowania obiektów na podstawie ich właściwości (np. eliminacja obiektów, które nie spełniają określonych warunków).
+
+Detekcja obiektów: Znajomość technik wykrywania obiektów na obrazie, w tym obiektów o określonej orientacji (np. bakterie położone poziomo).
+
+3. Morfologia matematyczna (Lab_06.pdf):
+Operacje morfologiczne: Znajomość operacji morfologicznych, takich jak dylatacja, erozja, otwarcie, zamknięcie, wypełnianie dziur oraz wygładzanie brzegów.
+
+Rozdzielanie obiektów: Wiedza na temat technik rozdzielania stykających się obiektów na obrazie binarnym.
+
+Usuwanie obiektów: Umiejętność usuwania obiektów, które stykają się z brzegiem obrazu.
+
+4. Detekcja krawędzi (dodatkowe laboratorium):
+Detektory krawędzi: Znajomość różnych detektorów krawędzi, takich jak Sobel, Canny, Prewitt, Roberts, i umiejętność ich zastosowania za pomocą funkcji edge w MATLABie.
+
+Porównywanie wyników: Umiejętność porównywania wyników różnych detektorów krawędzi i wyboru najbardziej odpowiedniego dla danego obrazu.
+
+Dodatkowe umiejętności:
+Programowanie w MATLABie: Znajomość podstaw programowania w MATLABie, w tym tworzenia funkcji, skryptów, pracy z obrazami (wczytywanie, wyświetlanie, zapisywanie).
+
+Wizualizacja wyników: Umiejętność wyświetlania wyników na ekranie w postaci obrazów i histogramów.
+
+
+
+ZAGADNIENIA 
+
+1. Analiza cech na obrazie:
+Laboratorium: MPOC_Lab_09.pdf (Wykrywanie i analiza cech)
+
+Umiejętności:
+
+Analiza właściwości obiektów, takich jak pole powierzchni, obwód, położenie.
+
+Wykorzystanie funkcji MATLABa do wyznaczania cech obiektów (np. regionprops).
+
+Filtrowanie obiektów na podstawie ich cech (np. wybór obiektów o największym polu powierzchni).
+
+2. Otwieranie plików:
+Laboratorium: Wszystkie laboratoria (podstawowa operacja w każdym zadaniu)
+
+Umiejętności:
+
+Wczytywanie obrazów za pomocą funkcji imread.
+
+Wyświetlanie obrazów za pomocą imshow.
+
+Zapisywanie wyników za pomocą imwrite.
+
+3. Filtrowanie do poprawy jakości:
+Laboratorium: MPOC_Lab_Progowanie (1).pdf (Segmentacja obrazów)
+
+Umiejętności:
+
+Zastosowanie filtrów do poprawy jakości obrazu (np. filtry Gaussa, Laplace'a).
+
+Wykorzystanie funkcji imfilter do filtracji obrazów.
+
+4. Segmentacja - progowanie w szarości:
+Laboratorium: MPOC_Lab_Progowanie (1).pdf (Segmentacja obrazów)
+
+Umiejętności:
+
+Progowanie obrazów w skali szarości (binaryzacja).
+
+Wykorzystanie histogramów do wyznaczania wartości progowych.
+
+Tworzenie funkcji do progowania z jednym lub wieloma progami.
+
+5. Poprawa jakości obiektów aby krawędzie nie były poszczepione:
+Laboratorium: Lab_06.pdf (Morfologia matematyczna)
+
+Umiejętności:
+
+Operacje morfologiczne, takie jak dylatacja, erozja, otwarcie, zamknięcie.
+
+Wypełnianie dziur w obiektach za pomocą funkcji imfill.
+
+Wygładzanie brzegów obiektów.
+
+6. Analiza cech - liczenie cech (pole powierzchni, obwód, położenie):
+Laboratorium: MPOC_Lab_09.pdf (Wykrywanie i analiza cech)
+
+Umiejętności:
+
+Wyznaczanie cech obiektów za pomocą funkcji regionprops.
+
+Analiza i porównywanie cech obiektów (np. pole powierzchni, obwód, położenie).
+
+7. Wyznacz obiekt z największym polem powierzchni:
+Laboratorium: MPOC_Lab_09.pdf (Wykrywanie i analiza cech)
+
+Umiejętności:
+
+Wyznaczanie pola powierzchni obiektów za pomocą regionprops.
+
+Porównywanie pól powierzchni i wybór obiektu o największym polu.
+
+8. Ile obiektów się znajduje:
+Laboratorium: MPOC_Lab_09.pdf (Wykrywanie i analiza cech)
+
+Umiejętności:
+
+Liczenie obiektów na obrazie za pomocą funkcji bwlabel lub regionprops.
+
+Filtrowanie obiektów na podstawie ich cech (np. pole powierzchni, obwód).
+
+Podsumowanie:
+MPOC_Lab_Progowanie (1).pdf: Segmentacja, progowanie, filtrowanie, histogramy.
+
+MPOC_Lab_09.pdf: Analiza cech obiektów, liczenie obiektów, wyznaczanie obiektów o określonych właściwościach.
+
+Lab_06.pdf: Morfologia matematyczna, poprawa jakości obiektów, wypełnianie dziur, wygładzanie brzegów.
